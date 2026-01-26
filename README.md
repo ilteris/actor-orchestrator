@@ -34,10 +34,10 @@ brew install gemini-cli
 # "run_shell_command", "write_todos", "read_file", "list_files", "delegate_to_agent"
 ```
 
-### 2. Linking the Extension
-Link the orchestrator logic from your Soul to the Gemini CLI:
+### 2. Installation
+Install the orchestrator directly from the public repository:
 ```bash
-gemini extensions link ~/dotfiles/soul/projects/actor-orchestrator
+gemini extensions install https://github.com/ilteris/actor-orchestrator.git
 ```
 
 ### 3. Launching a Swarm
@@ -53,7 +53,7 @@ To start a swarm in any project directory:
 
 2. **Trigger Orchestration**:
    ```bash
-   gemini --yolo "Activate the orchestrate skill. Bootstrap the project and launch the swarm."
+   gemini --yolo "orchestrate this project"
    ```
 
 ### 4. Monitoring & Review
