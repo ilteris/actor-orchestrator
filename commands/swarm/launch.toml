@@ -1,0 +1,5 @@
+prompt = """
+Activate the orchestrate skill. 
+Bootstrap the project environment and launch the Actor-Orchestrator swarm 
+to manage the current project's TODO.md using zmx for physical isolation.
+"""

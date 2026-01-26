@@ -1,0 +1,23 @@
+{
+  "name": "actor-orchestrator",
+  "version": "1.0.0",
+  "skills": ["supervisor", "worker", "teddy-supervisor", "orchestrate"],
+  "allowedTools": [
+    "run_shell_command",
+    "run_command",
+    "execute_command",
+    "write_todos",
+    "read_file",
+    "list_files",
+    "delegate_to_agent",
+    "web_fetch",
+    "google_search",
+    "activate_skill"
+  ],
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-google-chrome"]
+    }
+  }
+}
