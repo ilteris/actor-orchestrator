@@ -1,0 +1,35 @@
+#!/bin/bash
+# swarm-stream: Zero-overhead single-window swarm observer
+
+# Use provided path or current directory
+PROJECT_DIR=${1:-$(pwd)}
+LOG_DIR="/tmp/actor-orchestrator"
+
+while true; do
+  tput cup 0 0
+  echo -e "\033[1;34m--- 🧠 SWARM REGISTRY: $(basename "$PROJECT_DIR") ---\033[0m"
+  if [ -d "$PROJECT_DIR/tasks" ]; then
+    ls "$PROJECT_DIR/tasks" 2>/dev/null | sed 's/\.json//' | while read -r task; do
+      status=$(grep -o '"status": "[^"]*"' "$PROJECT_DIR/tasks/$task.json" | cut -d'"' -f4)
+      if [ "$status" == "completed" ]; then echo -e "  \033[1;32m✓\033[0m $task";
+      else echo -e "  \033[1;33m⠋\033[0m $task"; fi
+    done
+  else
+    echo "  (No tasks/ directory found at $PROJECT_DIR)"
+  fi
+
+  echo -e "\n\033[1;35m--- 👷 ACTIVE SESSIONS ---\033[0m"
+  zmx list 2>/dev/null | grep worker || echo "  (No active workers)"
+
+  echo -e "\n\033[1;36m--- 📡 LATEST ACTIVITY ---\033[0m"
+  # Search both /tmp/ and LOG_DIR for latest worker output
+  latest_log=$(ls -t /tmp/worker-*.log $LOG_DIR/worker-*.log 2>/dev/null | head -n 1)
+  if [ -f "$latest_log" ]; then
+    echo -e "Focusing: $(basename "$latest_log")"
+    tail -n 15 "$latest_log"
+  else
+    echo "  (Waiting for log data...)"
+  fi
+
+  sleep 1
+done

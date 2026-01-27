@@ -1,0 +1,56 @@
+#!/bin/bash
+# swarm-table: High-performance, zero-flicker table view of the agentic swarm
+
+PROJECT_DIR=${1:-$(pwd)}
+
+# Hide cursor for better UX
+tput civis
+clear # Physical wipe of the slop
+trap "tput cnorm; exit" INT TERM
+
+tick=0
+while true; do
+  # Reset cursor to top-left without clearing (anti-pulse)
+  tput cup 0 0
+  
+  # High-speed spinner frames
+  chars='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+  char=${chars:$((tick%10)):1}
+
+  echo -e "\033[1;34m┌──────────────────────┬─────────────┬───────────────────────────────────────┐\033[0m"
+  echo -e "\033[1;34m│\033[0m \033[1;37mSWARM AGENT REGISTRY\033[0m   \033[1;30m(v1.2)\033[0m                       $(date +"%H:%M:%S") \033[1;34m│\033[0m"
+  echo -e "\033[1;34m├──────────────────────┼─────────────┼───────────────────────────────────────┤\033[0m"
+  echo -e "\033[1;34m│\033[0m \033[1;36mWORKER\033[0m               \033[1;34m│\033[0m \033[1;36mSTATUS\033[0m      \033[1;34m│\033[0m \033[1;36mTASK\033[0m                                  \033[1;34m│\033[0m"
+  echo -e "\033[1;34m├──────────────────────┼─────────────┼───────────────────────────────────────┤\033[0m"
+
+  # Pin Supervisor at the top
+  SUP_STATUS=$(zmx list | grep -q "supervisor" && echo "ACTIVE 🧠" || echo "IDLE ○")
+  printf "\033[1;34m│\033[0m %-20s \033[1;34m│\033[0m %-11s \033[1;34m│\033[0m %-37s \033[1;34m│\033[0m\n" "SUPERVISOR" "$SUP_STATUS" "Project Orchestration & Eval"
+
+  if [ -d "$PROJECT_DIR/tasks" ]; then
+    # Sort by time to show newest at the bottom
+    ls -tr "$PROJECT_DIR/tasks" 2>/dev/null | tail -n 12 | while read -r task_file; do
+      task=$(echo "$task_file" | sed 's/\.json//')
+      status=$(grep -o '"status": "[^"]*"' "$PROJECT_DIR/tasks/$task_file" | cut -d'"' -f4)
+      
+      case $status in
+        "completed")   S_STR="\033[1;32mDONE ✓\033[0m      " ;;
+        "in_progress") S_STR="\033[1;33mWORKING $char\033[0m   " ;;
+        *)             S_STR="\033[1;37mPENDING ○\033[0m   " ;;
+      esac
+
+      printf "\033[1;34m│\033[0m %-20s \033[1;34m│\033[0m %b \033[1;34m│\033[0m %-37s \033[1;34m│\033[0m\n" "WORKER" "$S_STR" "${task:0:37}"
+    done
+  else
+    echo -e "\033[1;34m│\033[0m (No tasks found)                                                            \033[1;34m│\033[0m"
+  fi
+
+  echo -e "\033[1;34m└──────────────────────┴─────────────┴───────────────────────────────────────┘\033[0m"
+  
+  echo -e "\n\033[1;35m--- 👷 ACTIVE SESSIONS (zmx) ---\033[0m"
+  zmx list 2>/dev/null | grep worker || echo "  (Listening for worker pulse...)"
+  
+  tput ed
+  tick=$((tick+1))
+  sleep 1
+done
