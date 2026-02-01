@@ -1,0 +1,8 @@
+{
+  "id": "001-tui-hardening",
+  "title": "Harden TUI Logic",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "description": "Implemented adaptive rendering with dynamic truncation based on terminal dimensions and transitioned to Alternate Screen Buffers for zero-flicker stability."
+}

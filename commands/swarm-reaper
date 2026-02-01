@@ -1,0 +1,39 @@
+#!/bin/bash
+# swarm-reaper: The cleanup engine for the Actor-Orchestrator
+
+echo "--- 💀 REAPER ENGAGED ---"
+
+# 1. Prune Completed Workers
+# Scans /tasks/*.json for "completed" tasks and kills corresponding zmx sessions
+if [ -d "./tasks" ]; then
+  echo "Scanning tasks for completed sessions..."
+  for task_file in ./tasks/*.json; do
+    [ -e "$task_file" ] || continue
+    status=$(grep -o '"status": "[^"]*"' "$task_file" | cut -d'"' -f4)
+    id=$(basename "$task_file" .json)
+    
+    if [ "$status" == "completed" ]; then
+      session_name="worker-$id"
+      if zmx list | grep -q "$session_name"; then
+        echo "   └── Pruning orphaned session: $session_name"
+        zmx kill "$session_name" 2>/dev/null
+      fi
+      
+      # Optional: Prune local tmp directory
+      if [ -d "./tmp/$id" ]; then
+        echo "   └── Cleaning workspace: ./tmp/$id"
+        rm -rf "./tmp/$id"
+      fi
+    fi
+  done
+fi
+
+# 2. Prune Global Slop
+# Cleans the global /tmp/actor-orchestrator log directory
+if [ -d "/tmp/actor-orchestrator" ]; then
+  echo "Pruning global logs in /tmp/actor-orchestrator..."
+  # Keep only the last 100 lines of history, or delete logs older than 1 hour
+  find /tmp/actor-orchestrator -type f -mmin +60 -delete
+fi
+
+echo "--- ✅ INFRASTRUCTURE PURIFIED ---"

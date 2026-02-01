@@ -1,0 +1,8 @@
+{
+  "id": "004-reaper-protocol",
+  "title": "Finalize Reaper Protocol",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "description": "Implemented automatic pruning of completed zmx sessions and cleanup of temporary /tmp work directories via modular swarm-reaper utility."
+}

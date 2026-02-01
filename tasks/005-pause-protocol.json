@@ -1,0 +1,8 @@
+{
+  "id": "005-pause-protocol",
+  "title": "Implement Pause & Dormancy",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "description": "Implemented .pause file detection and automatic session termination upon task completion."
+}

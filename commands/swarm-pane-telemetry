@@ -1,0 +1,54 @@
+#!/bin/bash
+# swarm-pane-telemetry: Adaptive Modular component for the Swarm TUI
+
+# Enter Alternate Screen Buffer
+tput smcup
+tput civis
+
+cleanup() {
+  tput cnorm
+  tput rmcup
+  exit
+}
+trap cleanup INT TERM
+
+while true; do 
+  tput cup 0 0
+  
+  COLS=$(tput cols)
+  LINES=$(tput lines)
+  LOG_WIDTH=$((COLS - 5))
+  LOG_COUNT=$((LINES - 6)) # Reserve space for header and workers
+  [ $LOG_COUNT -lt 1 ] && LOG_COUNT=1
+
+  BUFFER="\033[1;35m--- 🐦 SWARM TELEMETRY --- \033[0m\033[K\n"
+  
+  workers=$(zmx list | grep worker 2>/dev/null)
+  if [ -z "$workers" ]; then 
+    BUFFER+="   (No active workers)\033[K\n"
+  else 
+    while read -r line; do 
+      name=$(echo "$line" | cut -d'=' -f2 | cut -f1)
+      BUFFER+="   ├── 👷 ${name:0:$LOG_WIDTH}\033[K\n"
+    done <<< "$workers"
+  fi 
+  
+  BUFFER+="------------------------------------------\033[K\n"
+  
+  # Fetch latest logs and truncate for current width
+  logs=$(find /tmp/ -name 'worker-*.log' -exec tail -n 1 {} + 2>/dev/null | tail -n $LOG_COUNT)
+  if [ -n "$logs" ]; then
+    while read -r logline; do
+      [ -z "$logline" ] && continue
+      # Strip potential path/filename prefix from find output if needed, then truncate
+      clean_log=$(echo "$logline" | sed 's/.*==> //')
+      BUFFER+="${clean_log:0:$LOG_WIDTH}\033[K\n"
+    done <<< "$logs"
+  else
+    BUFFER+="   (Listening for pulse...)\033[K\n"
+  fi
+
+  printf "$BUFFER"
+  tput ed
+  sleep 1 
+done

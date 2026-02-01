@@ -1,0 +1,64 @@
+#!/bin/bash
+# swarm-pane-blackboard: Adaptive Modular component for the Swarm TUI
+
+TASK_DIR="${1:-$(pwd)/tasks}"
+
+# Enter Alternate Screen Buffer & Hide cursor
+tput smcup
+tput civis
+
+# Ensure we clean up on exit
+cleanup() {
+  tput cnorm
+  tput rmcup
+  exit
+}
+trap cleanup INT TERM
+
+while true; do 
+  # Absolute reset to top-left
+  tput cup 0 0
+  
+  # Get current dimensions
+  COLS=$(tput cols)
+  TITLE_WIDTH=$((COLS - 20)) # Reserve space for ID and Status
+  [ $TITLE_WIDTH -lt 10 ] && TITLE_WIDTH=10
+
+  # Build the header
+  BUFFER="\033[1;34m--- 🧠 SWARM BLACKBOARD --- \033[0m\033[K\n"
+  
+  if [ -d "$TASK_DIR" ]; then 
+    # Sort tasks numerically by ID
+    for task_file in $(ls "$TASK_DIR"/*.json 2>/dev/null | sort); do
+      [ -e "$task_file" ] || continue
+      status=$(grep -o '"status": "[^"]*"' "$task_file" | cut -d'"' -f4)
+      title=$(grep -o '"title": "[^"]*"' "$task_file" | cut -d'"' -f4)
+      id=$(basename "$task_file" .json)
+      
+      # Truncate title based on current width
+      if [ ${#title} -gt $TITLE_WIDTH ]; then
+        display_title="${title:0:$((TITLE_WIDTH-3))}..."
+      else
+        display_title="$title"
+      fi
+
+      case $status in 
+        "completed")   S_STR="\033[1;32m[DONE]\033[0m" ;; 
+        "in-progress") S_STR="\033[1;33m[WORK]\033[0m" ;; 
+        *)               S_STR="\033[1;36m[PEND]\033[0m" ;; 
+      esac
+      
+      # Use printf with fixed widths for alignment
+      BUFFER+=$(printf "% -6b \033[1;37m%-8s\033[0m %s\033[K\n" "$S_STR" "${id:0:8}" "$display_title")
+    done 
+  else 
+    BUFFER+="\033[1;31m(No tasks found)\033[0m\033[K\n"
+  fi 
+  
+  # Render the atomic frame
+  printf "$BUFFER"
+  # Wipe any remaining space to prevent resize ghosts
+  tput ed
+  
+  sleep 2 
+done
