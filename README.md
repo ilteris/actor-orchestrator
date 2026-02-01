@@ -2,68 +2,93 @@
 
 A "Unix-for-AI" architecture for managing concurrent, autonomous agent workstreams using `gemini-cli` and `zmx`.
 
-## What is it?
-The Actor-Orchestrator is a hierarchical agentic system that transforms a flat `TODO.md` file into an active project blackboard. It uses an **Actor Model** pattern to delegate tasks to isolated sub-agents (Workers) that operate in their own persistent terminal sessions.
+## 🎯 What is it?
+The Actor-Orchestrator is a hierarchical agentic system that transforms a project directory into an active **Blackboard**. It uses an **Actor Model** pattern to delegate tasks to isolated, ephemeral sub-agents (Workers) that operate in persistent terminal sessions.
 
-## Why use it?
-- **Cognitive Multiplier**: Offload high-throughput implementation "slop" to parallel agents while you maintain high-level architectural oversight.
-- **Physical Isolation**: Each worker runs in its own `zmx` pane with a unique temporary workspace, preventing file-system conflicts and logical crosstalk.
-- **Human-in-the-Loop**: Integrated PR-based review gates ensure no code is merged without your approval.
-- **Zero Zombies**: The "Reaper" protocol automatically terminates terminal sessions as soon as an agent completes its task.
+## 🛠 Why use it?
+- **Cognitive Multiplier**: Offload implementation "slop" to parallel agents while maintaining high-level architectural oversight.
+- **Physical Isolation**: Each worker runs in a unique `zmx` pane with an isolated temporary workspace (`/tmp`), preventing file-system conflicts and logical crosstalk.
+- **Self-Purifying**: The **Reaper Protocol** automatically prunes sessions and workspaces upon completion, ensuring zero resource leakage.
+- **Observability**: A zero-flicker, 3-pane **Mission Control** TUI provides a "Commander's View" of the entire swarm's state and telemetry.
 
-## The Hierarchy
-1. **Meta-Orchestrator (Teddy)**: Bootstraps the environment and launches the Supervisor.
-2. **Supervisor Actor**: Reads the `TODO.md` blackboard and delegates tasks to Workers.
-3. **Worker Actors**: Execute specific tasks (Clone -> Branch -> Implement -> Verify -> PR).
+## 🏗 How it Works (The Flow)
+
+```mermaid
+graph TD
+    A[User: gemini orchestrate] --> B[Meta-Orchestrator: Teddy]
+    B --> C{Environment Audit}
+    C -->|Success| D[Supervisor Actor]
+    D --> E[Scan ./tasks/*.json]
+    E --> F{Dependency Check}
+    F -->|Unblocked| G[Spawn Worker Session]
+    F -->|Completed| H[Spawn Evaluator Session]
+    G --> I[Worker: Implement & PR]
+    H --> J[Evaluator: Taste Audit]
+    I --> E
+    J -->|Pass| K[Mark Task DONE]
+    K --> E
+```
 
 ---
 
-## Step-by-Step Instructions
+## 🚀 Installation & Setup
 
-### 1. Installation & Setup
-Ensure you have the core dependencies installed:
+### 1. Prerequisites
+Ensure you have the core persistent terminal layer and the Gemini CLI installed:
 ```bash
-# Install zmx (The persistent terminal layer)
+# Install zmx (Persistent Terminal Layer)
 brew tap neurosnap/tap && brew install zmx
 
-# Install gemini-cli (The agent logic)
+# Install gemini-cli
 brew install gemini-cli
-
-# Pre-authorize tools (Important for headless automation)
-# Ensure your ~/.gemini/settings.json includes these in tools.core:
-# "run_shell_command", "write_todos", "read_file", "list_files", "delegate_to_agent"
 ```
 
-### 2. Installation
-Install the orchestrator directly from the public repository:
+### 2. Install Extension
+Link the orchestrator directly from the repository:
 ```bash
 gemini extensions install https://github.com/ilteris/actor-orchestrator.git
 ```
 
-### 3. Launching a Swarm
-To start a swarm in any project directory:
+---
 
-1. **Create a Blackboard**:
-   Create a `TODO.md` in your project root with your tasks:
-   ```markdown
-   # Project Tasks
-   - [ ] Implement user authentication.
-   - [ ] Generate API documentation.
-   ```
+## 🕹 Usage Guide
 
-2. **Trigger Orchestration**:
-   ```bash
-   gemini --yolo "orchestrate this project"
-   ```
+### 1. Initialize the Blackboard
+Create a `./tasks/` directory in your project root and add task JSON files:
+```json
+{
+  "id": "001-setup",
+  "title": "Initial Project Setup",
+  "status": "pending",
+  "contract": "architect",
+  "blocked_by": []
+}
+```
 
-### 4. Monitoring & Review
-- **Monitor Supervisor**: `zmx attach supervisor`
-- **Monitor Workers**: `zmx list` to see active workers, then `zmx attach <worker-id>`.
-- **Review Work**: Once a worker finishes, it will append a Pull Request link to your `TODO.md`. Review and merge the PR via `gh pr view`.
+### 2. Launch the Swarm
+To start the orchestration with the 3-pane Mission Control view:
+```bash
+gemini --yolo "orchestrate this project"
+```
+
+To run a background swarm (Headless Mode):
+```bash
+gemini --yolo "orchestrate this project silently"
+```
+
+### 3. Control & Observability
+- **Pause Swarm**: `touch .pause`
+- **Resume Swarm**: `rm .pause`
+- **Kill Switch**: `swarm-kill`
+- **Reaper**: `swarm-reaper` (Manual deep clean)
 
 ---
 
-## Technical Specs
-- **Isolation Layer**: `./tmp/<task-id>/`
-- **Signaling**: Synchronous tool returns + asynchronous `TODO.md` polling.
-- **Verification**: Built-in support for Google Chrome MCP for UI testing.
+## 🛡 Technical Specs
+- **State Engine**: `./tasks/*.json` (Single Source of Truth)
+- **Isolation**: `./tmp/<task_id>/`
+- **Persistence**: `zmx` session management.
+- **UI**: Zero-flicker Modular Pane Architecture.
+
+---
+*Created by Teddy (The Distributed Soul) for Sir.*
