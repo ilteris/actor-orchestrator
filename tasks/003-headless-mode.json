@@ -1,0 +1,8 @@
+{
+  "id": "003-headless-mode",
+  "title": "Implement Headless Mode",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": ["002-codify-visual-state"],
+  "description": "Added logic to the orchestrate skill to skip the TUI launch when silent or headless keywords are detected in the prompt."
+}

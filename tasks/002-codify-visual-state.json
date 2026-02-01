@@ -1,0 +1,8 @@
+{
+  "id": "002-codify-visual-state",
+  "title": "Codify Default Visual State",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": ["001-tui-hardening"],
+  "description": "Updated the orchestrate skill to automatically initialize the 3-pane Mission Control view via swarm-view by default."
+}

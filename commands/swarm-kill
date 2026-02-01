@@ -1,0 +1,20 @@
+#!/bin/bash
+# swarm-kill: The system-wide kill switch for the Actor-Orchestrator
+
+PROJECT_DIR=$(pwd)
+
+echo "--- 🛑 TERMINATING SWARM ---"
+
+# 1. Kill background zmx sessions
+echo "Stopping background agents (zmx)..."
+zmx kill supervisor 2>/dev/null
+zmx list | grep worker | cut -d'=' -f2 | cut -f1 | xargs -I {} zmx kill {} 2>/dev/null
+
+# 2. Collapse tmux panes (if inside tmux)
+if [ -n "$TMUX" ]; then
+  echo "Collapsing Mission Control panes..."
+  # Kill all other panes in the current window except the active one
+  tmux kill-pane -a -t 0
+fi
+
+echo "--- ✅ SWARM SILENCED ---"
