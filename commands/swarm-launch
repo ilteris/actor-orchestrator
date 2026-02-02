@@ -1,0 +1,30 @@
+#!/bin/bash
+# swarm-launch: Self-Healing & Context-Aware Command Center
+PROJECT_DIR=$(pwd)
+ORCHESTRATOR_DIR="/Users/ilteris/Code/actor-orchestrator"
+
+# 1. Self-Healing Permissions (Fixing the 'Chmod' Toil)
+echo "--- Asserting Script Authorization ---"
+chmod +x "$ORCHESTRATOR_DIR"/commands/*
+chmod +x "$ORCHESTRATOR_DIR"/skills/worker/scripts/* 2>/dev/null
+
+# 2. Automate Extension Linking
+(cd "$ORCHESTRATOR_DIR" && gemini extensions link . > /dev/null 2>&1)
+
+# 3. Context-Aware Tmux
+if [ -z "$TMUX" ]; then
+  tmux new-session -A -s swarm "cd $PROJECT_DIR && $0 $@"
+  exit 0
+fi
+
+tmux select-pane -t "$TMUX_PANE" -T "[ 🤖 SWARM CONSOLE ]"
+clear
+
+# 4. Background the Supervisor
+if ! zmx list | grep -q "supervisor"; then
+  echo "--- Launching Persistent Supervisor ---"
+  zmx run supervisor "cd $PROJECT_DIR && gemini orchestrate --yolo --extension actor-orchestrator 'DAEMON_MODE: Monitor blackboard.'" > /dev/null 2>&1
+fi
+
+# 5. Foreground the Dashboard
+python3 "$ORCHESTRATOR_DIR"/commands/swarm-status.py

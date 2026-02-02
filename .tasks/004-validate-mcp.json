@@ -1,0 +1,13 @@
+{
+  "id": "004",
+  "title": "Validate Playwright MCP server",
+  "status": "completed",
+  "priority": "medium",
+  "description": "Ensure the Playwright/Chrome MCP server is correctly configured for UI-driven worker tasks.",
+  "requirements": [
+    "Check ~/.gemini/settings.json for 'google-chrome-devtools' or 'playwright' MCP entries",
+    "Run a test script to capture a screenshot via the 'take_screenshot' tool"
+  ],
+  "created_at": "2026-02-01",
+  "completed_at": "2026-02-01"
+}

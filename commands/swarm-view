@@ -1,41 +1,33 @@
 #!/bin/bash
-# swarm-view: A "Conductive" TUI for the Actor-Orchestrator Swarm
-# Implements the "Mission Control" layout for tmux/zmx environments.
-
+# swarm-view: The "North Star" Mission Control Orchestrator
 PROJECT_DIR=$(pwd)
 BLACKBOARD="$PROJECT_DIR/TODO.md"
-SESSION_NAME="swarm-$(basename "$PROJECT_DIR")"
 
-# Check if we are already in tmux
 if [ -z "$TMUX" ]; then
-  echo "Error: swarm-view must be run from inside a tmux session."
+  echo "Error: Run this inside a tmux session."
   exit 1
 fi
 
-# 1. Prepare Panes
-# Pane 0: The Supervisor (Current Pane)
-# Pane 1: The Blackboard (Right)
-# Pane 2: The Worker Logs (Bottom Right)
+# 1. Clear existing layout to ensure a clean slate
+tmux kill-pane -a -t 0 2>/dev/null
 
-# Set Pane Titles and Borders
-tmux set -p pane-border-status top
-tmux select-pane -t 0 -T "[ 🧠 SUPERVISOR ]"
+# 2. Configure the Main Brain (Left Pane)
+tmux select-pane -t 0 -T "[ 🧠 SUPERVISOR BRAIN ]"
+tmux set -g pane-border-status top
 
-# Create Blackboard View (Right) - 50 columns
-tmux split-window -h -l 50 "tmux select-pane -T '[ 📋 BLACKBOARD (READ-ONLY) ]'; last_hash=''; while true; do current_hash=\$(md5 -q $BLACKBOARD 2>/dev/null); if [ \"\$current_hash\" != \"\$last_hash\" ]; then clear; echo '--- 🧠 SWARM BLACKBOARD ---'; glow -s dark $BLACKBOARD 2>/dev/null || cat $BLACKBOARD; last_hash=\$current_hash; fi; sleep 1; done"
+# 3. Create the Task Blackboard (Top Right)
+# Splits horizontally first
+tmux split-window -h -p 38 "while true; do clear; echo '--- 📋 TASK BLACKBOARD ---'; glow -s dark $BLACKBOARD 2>/dev/null || cat $BLACKBOARD; sleep 2; done"
+tmux select-pane -t 1 -T "[ 📋 TASK BLACKBOARD ]"
 
-# Create Worker Log View (Bottom Right) - Universal Search
-tmux split-window -v -l 15 "tmux select-pane -T '[ 🐦 TELEMETRY (FOCUS) ]'; tick=0; focus_file='.swarm_focus'; touch \$focus_file; while true; do printf '\033[H'; current_focus=\$(cat \$focus_file); if [ -z \"\$current_focus\" ]; then echo '--- 🐦 SWARM TELEMETRY (AGGREGATED) ---'; echo '└─ 🤖 Swarm: [Active]'; chars='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'; char=\${chars:\$((tick%10)):1}; workers=\$(zmx list | grep worker); if [ -z \"\$workers\" ]; then echo '   └── (Waiting for workers...)'; else echo \"\$workers\" | while read -r line; do name=\$(echo \"\$line\" | cut -d'=' -f2 | cut -f1); echo \"   ├── 👷 \$name [\$char]\"; done; fi; echo '------------------------------------------'; find /tmp/ -name 'worker-*.log' -exec tail -n 1 {} + 2>/dev/null; else echo \"--- 🔍 FOCUSING: \$current_focus ---\"; # Universal search in /tmp
-log_file=\$(find /tmp -name \"*\$current_focus*\" 2>/dev/null | grep \".log\" | head -n 1); if [ -n \"\$log_file\" ]; then tail -n 15 \"\$log_file\"; else echo \"(Waiting for \$current_focus log...)\"; fi; fi; tick=\$((tick+1)); sleep 0.5; done"
+# 4. Create the Live Telemetry (Bottom Right)
+# Splits the right pane vertically
+tmux select-pane -t 1
+tmux split-window -v -p 50 "while true; do clear; echo '--- 🐦 SWARM TELEMETRY ---'; zmx list | grep worker || echo ' (Waiting for worker pulse...)'; echo '------------------------------------------'; tail -n 20 /tmp/actor-orchestrator/*.log 2>/dev/null | grep -v '==>' | tail -n 15; sleep 1; done"
+tmux select-pane -t 2 -T "[ 🐦 LIVE LOGS ]"
 
-# Final Layout Establishment: Physical Directional Snap-back
-sleep 0.2
-tmux select-pane -L # Force cursor to the far left
-tmux select-pane -U # Force cursor to the top
-tmux display-message "Mission Control Active: Focus Restored to Supervisor"
+# 5. Final Focus: Return to Supervisor
+tmux select-pane -t 0
 clear
-echo "--- Swarm Mission Control Active ---"
-echo "Supervisor running in this pane."
-echo "Blackboard (TODO.md) visible on the right."
-echo "Live Worker logs visible on the bottom right."
-echo "----------------------------"
+echo "--- Mission Control Online ---"
+echo "Supervisor ready in this pane."

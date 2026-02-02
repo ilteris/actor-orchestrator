@@ -1,0 +1,13 @@
+{
+  "id": "002",
+  "title": "Register actor-orchestrator extension",
+  "status": "completed",
+  "priority": "high",
+  "description": "Link the current directory as a Gemini extension to make skills globally available.",
+  "requirements": [
+    "Execute 'gemini extensions link .' from project root",
+    "Verify registration via 'gemini extensions list'"
+  ],
+  "created_at": "2026-02-01",
+  "completed_at": "2026-02-01"
+}

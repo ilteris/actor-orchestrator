@@ -18,7 +18,8 @@ You are the Meta-Orchestrator. Your role is to ensure the environment is ready a
    - If `./tmp/` is missing, create it.
 3. **Launch**:
    - Execute the Supervisor in a detached `zmx` session with an extended timeout.
-   - Command: `zmx run supervisor "cd $PWD && gemini supervisor --yolo 'Monitor TODO.md and delegate tasks. Use ./tmp/ for worker isolation.'"`
+   - **MANDATORY**: Include the extension flag to ensure tool registry access.
+   - Command: `zmx run supervisor "cd $PWD && gemini --yolo --extension actor-orchestrator supervisor 'Monitor TODO.md and delegate tasks. Use ./tmp/ for worker isolation.'"`
 
 ## Constraints
 - Do not delegate tasks yourself; your only job is to launch the Supervisor.

@@ -2,25 +2,42 @@
 
 A "Unix-for-AI" architecture for managing concurrent, autonomous agent workstreams using `gemini-cli` and `zmx`.
 
-## What is it?
-The Actor-Orchestrator is a hierarchical agentic system that transforms a flat `TODO.md` file into an active project blackboard. It uses an **Actor Model** pattern to delegate tasks to isolated sub-agents (Workers) that operate in their own persistent terminal sessions.
+![Swarm Command Center](dashboard_screenshot.png)
 
-## Why use it?
-- **Cognitive Multiplier**: Offload high-throughput implementation "slop" to parallel agents while you maintain high-level architectural oversight.
-- **Physical Isolation**: Each worker runs in its own `zmx` pane with a unique temporary workspace, preventing file-system conflicts and logical crosstalk.
-- **Human-in-the-Loop**: Integrated PR-based review gates ensure no code is merged without your approval.
-- **Zero Zombies**: The "Reaper" protocol automatically terminates terminal sessions as soon as an agent completes its task.
+## What is it?
+The Actor-Orchestrator is a hierarchical agentic system that transforms a flat `TODO.md` file into an active project blackboard. It uses an **Actor Model** pattern to delegate tasks to isolated sub-agents (Workers) that operate in their own persistent terminal sessions, managed by a high-fidelity TUI Command Center.
+
+## The Vision: High-Fidelity Autonomy
+- **Cognitive Multiplier**: Offload high-throughput implementation to parallel agents while maintaining high-level architectural oversight.
+- **Physical Isolation**: Each worker runs in its own `zmx` session with unique temporary workspaces, preventing file-system conflicts and logical crosstalk.
+- **Observability**: A dedicated **Swarm Command Center** provides real-time "Active Reasoning" previews, event logging (PR detection), and interactive "Jack-In" capabilities.
+- **Self-Healing**: Automated reconciliation loops detect dead workers, audit logs for completion signatures, and update task states without human intervention.
+- **Ghost Protocol**: Hermetic execution runners that self-destruct upon completion, leaving the system temporary directories pristine.
 
 ## The Hierarchy
-1. **Meta-Orchestrator (Teddy)**: Bootstraps the environment and launches the Supervisor.
-2. **Supervisor Actor**: Reads the `TODO.md` blackboard and delegates tasks to Workers.
-3. **Worker Actors**: Execute specific tasks (Clone -> Branch -> Implement -> Verify -> PR).
+1.  **Meta-Orchestrator (Teddy)**: Bootstraps the environment and launches the Supervisor.
+2.  **Supervisor Actor**: Monitors the `.tasks/` directory and `TODO.md` blackboard; delegates tasks via a deterministic dispatch engine.
+3.  **Worker Actors**: Distributed engineers that execute specific tasks (Clone -> Branch -> Implement -> Verify -> Commit -> PR).
+
+## Command Center Interface
+- **Active Workstreams**: Displays live reasoning and "thoughts" from running workers with a subtle pulsating heartbeat.
+- **Task Ledger**: A recency-sorted list of the latest 10 tasks and their current states.
+- **System Events**: A descending feed of infrastructure events, including automated PR link capture.
+- **Interactivity**: 
+    - `[S]` **Stream Log**: Focus on a specific worker's full log output.
+    - `[R]` **Refresh**: Force a data re-sync.
+    - `[Q]` **Quit**: Graceful, silent exit.
+
+## S5 Protocol (Atomic Contribution)
+All workers follow a strict Git lifecycle:
+1.  Isolation in a dedicated branch: `task-<ID>-<slug>`.
+2.  Implementation and local verification.
+3.  Automatic push to remote and Pull Request creation via GitHub CLI (`gh`).
+4.  URL reporting back to the master Command Center.
 
 ---
 
-## Step-by-Step Instructions
-
-### 1. Installation & Setup
+## Installation & Setup
 Ensure you have the core dependencies installed:
 ```bash
 # Install zmx (The persistent terminal layer)
@@ -29,41 +46,22 @@ brew tap neurosnap/tap && brew install zmx
 # Install gemini-cli (The agent logic)
 brew install gemini-cli
 
-# Pre-authorize tools (Important for headless automation)
-# Ensure your ~/.gemini/settings.json includes these in tools.core:
-# "run_shell_command", "write_todos", "read_file", "list_files", "delegate_to_agent"
+# Pre-authorize tools in ~/.gemini/settings.json
+# Ensure "run_shell_command", "write_todos", "read_file", "list_files", "delegate_to_agent" are allowed.
 ```
 
-### 2. Installation
-Install the orchestrator directly from the public repository:
-```bash
-gemini extensions install https://github.com/ilteris/actor-orchestrator.git
-```
-
-### 3. Launching a Swarm
-To start a swarm in any project directory:
-
-1. **Create a Blackboard**:
-   Create a `TODO.md` in your project root with your tasks:
-   ```markdown
-   # Project Tasks
-   - [ ] Implement user authentication.
-   - [ ] Generate API documentation.
-   ```
-
-2. **Trigger Orchestration**:
-   ```bash
-   gemini --yolo "orchestrate this project"
-   ```
-
-### 4. Monitoring & Review
-- **Monitor Supervisor**: `zmx attach supervisor`
-- **Monitor Workers**: `zmx list` to see active workers, then `zmx attach <worker-id>`.
-- **Review Work**: Once a worker finishes, it will append a Pull Request link to your `TODO.md`. Review and merge the PR via `gh pr view`.
-
----
+### Launching a Swarm
+1.  **Link the Extension**:
+    ```bash
+    cd ~/Code/actor-orchestrator && gemini extensions link .
+    ```
+2.  **Activate Mission Control**:
+    Inside any project with a `.tasks/` directory or `TODO.md`:
+    ```bash
+    ./../actor-orchestrator/commands/swarm-launch
+    ```
 
 ## Technical Specs
-- **Isolation Layer**: `./tmp/<task-id>/`
-- **Signaling**: Synchronous tool returns + asynchronous `TODO.md` polling.
-- **Verification**: Built-in support for Google Chrome MCP for UI testing.
+- **State Engine**: `.tasks/*.json` (Individual task metadata).
+- **Communication**: Shared `swarm.log` + synchronous tool returns.
+- **Runtime**: Python 3.x (Dashboard) + Bash (Runners) + Gemini CLI (Agents).

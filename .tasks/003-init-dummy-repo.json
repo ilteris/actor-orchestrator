@@ -1,0 +1,15 @@
+{
+  "id": "003",
+  "title": "Initialize dummy repo for testing",
+  "status": "completed",
+  "priority": "medium",
+  "description": "Create a temporary repository to validate the Supervisor -> Worker spawning loop.",
+  "requirements": [
+    "Create ../actor-orchestrator-test",
+    "Initialize git and create a sample TODO.md",
+    "Run 'gemini orchestrate' inside the test repo"
+  ],
+  "notes": "Existing mature test-bed found at ~/Code/swarm-test-bed. Using this as the primary validation target.",
+  "created_at": "2026-02-01",
+  "completed_at": "2026-02-01"
+}
