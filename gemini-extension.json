@@ -10,13 +10,13 @@
   ],
   "releaseUrl": "https://github.com/ilteris/actor-orchestrator/releases/tag/v2.0.0",
   "allowedTools": [
-    "run_shell_command",
-    "write_todos",
-    "read_file",
-    "list_files",
+    "activate_skill",
     "delegate_to_agent",
-    "web_fetch",
     "google_search",
-    "activate_skill"
+    "list_files",
+    "read_file",
+    "run_shell_command",
+    "web_fetch",
+    "write_todos"
   ]
 }
