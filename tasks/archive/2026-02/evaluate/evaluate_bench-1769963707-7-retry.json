@@ -1,0 +1,19 @@
+{
+  "id": "eval-bench-1769963707-7-retry",
+  "subject": "Evaluate bench-1769963707-7-retry",
+  "description": "Evaluate the remediation for bench-1769963707-7 based on logs/bench-1769963707-7_report.md",
+  "pillar": "ML Infrastructure",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "target_task_id": "bench-1769963707-7-retry",
+    "target_artifact": "logs/bench-1769963707-7_report.md"
+  }
+}

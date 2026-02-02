@@ -1,0 +1,14 @@
+{
+  "id": "bench-1769954158-0",
+  "title": "Scale Benchmark Task 0",
+  "status": "completed",
+  "contract": "explorer",
+  "description": "Part of the scaling benchmark. Perform a recursive directory listing and report.",
+  "log_dir": "logs/bench-1769954158-0",
+  "result": "Completed recursive listing and generated report.",
+  "report_path": "logs/bench-1769954158-0/report.md",
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS"
+  }
+}

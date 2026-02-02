@@ -1,0 +1,17 @@
+{
+  "id": "eval-bench-1769956087-5",
+  "task_id": "bench-1769956087-5",
+  "subject": "Evaluate Benchmark bench-1769956087-5",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  },
+  "metadata": {
+    "target_task_id": "bench-1769956087-5"
+  },
+  "governance": {
+    "evaluated": true
+  }
+}

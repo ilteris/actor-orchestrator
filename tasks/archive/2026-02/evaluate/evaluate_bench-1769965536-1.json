@@ -1,0 +1,19 @@
+{
+  "id": "eval-bench-1769965536-1",
+  "subject": "Evaluate bench-1769965536-1",
+  "description": "Evaluate the completion and quality of bench-1769965536-1 based on logs/bench-1769965536-1/report.md",
+  "pillar": "ML Infrastructure",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "target_task_id": "bench-1769965536-1",
+    "target_artifact": "logs/bench-1769965536-1/report.md"
+  }
+}

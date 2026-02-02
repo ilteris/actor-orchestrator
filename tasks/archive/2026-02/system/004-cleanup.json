@@ -1,0 +1,12 @@
+{
+  "id": "004-cleanup",
+  "title": "Cleanup workspace and archive logs",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS",
+    "report": "evaluation_report_004.md"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "bench-1769963707-2",
+  "title": "Bench Task bench-1769963707-2",
+  "description": "Scaling benchmark sub-task bench-1769963707-2",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS",
+    "evaluation_timestamp": "2026-02-01T22:35:00Z",
+    "evaluator": "Teddy (Evaluator Skill)"
+  },
+  "artifacts": {
+    "report": "logs/archive/benchmark-sessions/bench-1769963707-2_report.md",
+    "listing": "logs/archive/benchmark-sessions/bench-1769963707-2_ls.txt",
+    "audit": "logs/evaluations/evaluation_report_bench-1769963707-2.md"
+  }
+}

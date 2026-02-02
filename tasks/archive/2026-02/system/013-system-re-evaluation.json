@@ -1,0 +1,43 @@
+{
+  "id": "013-system-re-evaluation",
+  "subject": "Post-Dormancy System Re-evaluation",
+  "description": "Evaluate the current state of the swarm-test-bed to determine if any new architectural or performance optimizations are needed post-011 reconciliation.",
+  "pillar": "Systems Engineering",
+  "status": "verified",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": null,
+    "role_contract": "Architect",
+    "blocked_by": [],
+    "blocks": [],
+    "worker_session": null,
+    "last_heartbeat": null
+  },
+  "governance": {
+    "plan_required": true,
+    "plan_approved": false,
+    "human_review_required": false,
+    "evaluated": true,
+    "verdict": "PASS"
+  },
+  "metadata": {
+    "created_at": "2026-02-01T15:00:00Z",
+    "updated_at": "2026-02-01T22:40:00Z",
+    "artifacts": [
+      "logs/013-system-re-evaluation_report.md"
+    ]
+  },
+  "history": [
+    {
+      "timestamp": "2026-02-01T15:00:00Z",
+      "event": "task_created",
+      "actor": "Supervisor"
+    },
+    {
+      "timestamp": "2026-02-01T22:40:00Z",
+      "event": "task_verified",
+      "actor": "Supervisor"
+    }
+  ]
+}

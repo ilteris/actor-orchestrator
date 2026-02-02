@@ -1,0 +1,79 @@
+[
+  {
+    "timestamp": "2026-02-01T17:02:47.642770",
+    "task_id": "16",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "soul/scripts/system3_audit.py"
+  },
+  {
+    "timestamp": "2026-02-01T17:24:49.505905",
+    "task_id": "16",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "soul/scripts/system3_audit.py"
+  },
+  {
+    "timestamp": "2026-02-01T17:46:42.167046",
+    "task_id": "16",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "soul/scripts/system3_audit.py"
+  },
+  {
+    "timestamp": "2026-02-01T17:49:37.984190",
+    "task_id": "20",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "soul/scripts/system3_audit.py"
+  },
+  {
+    "timestamp": "2026-02-01T17:49:37.984455",
+    "task_id": "23",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "soul/scripts/soul_search.py"
+  },
+  {
+    "timestamp": "2026-02-01T17:56:03.594922",
+    "task_id": "supervisor",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "logs/evaluations/evaluation_report_23.md"
+  },
+  {
+    "timestamp": "2026-02-01T18:05:17.114484",
+    "task_id": "supervisor",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "Steady-state dormancy verified"
+  },
+  {
+    "timestamp": "2026-02-01T18:08:00.381384",
+    "task_id": "eval-20",
+    "status": "completed",
+    "verdict": "PASS",
+    "artifact": "soul/memory/system3_audit.md"
+  },
+  {
+    "timestamp": "2026-02-01T18:33:18.535942",
+    "task_id": "16",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "soul/scripts/system3_audit.py"
+  },
+  {
+    "timestamp": "2026-02-01T18:33:36.340122",
+    "task_id": "bench-1769956063-0",
+    "status": "verified",
+    "verdict": "PASS",
+    "artifact": "logs/archive/bench-1769956063-0_report.md"
+  },
+  {
+    "timestamp": "2026-02-01T18:52:35.583536",
+    "task_id": "016",
+    "status": "completed",
+    "verdict": "PASS",
+    "artifact": "logs/016-e2e-ingestion-audit.md"
+  }
+]

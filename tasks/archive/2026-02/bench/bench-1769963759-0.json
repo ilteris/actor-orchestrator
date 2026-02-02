@@ -1,0 +1,18 @@
+{
+  "id": "bench-1769963759-0",
+  "title": "Bench Task bench-1769963759-0",
+  "description": "Newly discovered scaling benchmark sub-task from supervisor inbox.",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "metadata": {
+    "created_at": "2026-02-01T11:45:00Z",
+    "completed_at": "2026-02-01T11:55:00Z"
+  },
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS",
+    "evaluation_report": "evaluation_report_bench-1769963759-0.md"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "001-audit",
+  "title": "Baseline Codebase Audit",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "description": "Perform a read-only audit of the current directory to establish context.",
+  "result": "./tmp/001-audit/audit_report.md",
+  "governance": {
+    "evaluated": true,
+    "plan_approved": true,
+    "evaluation_notes": "Audit confirmed clean-slate state. Anomaly noted: System prompt indicates Git management but no local .git found. This is acceptable for a test-bed initialization."
+  }
+}

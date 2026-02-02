@@ -1,0 +1,8 @@
+{
+  "id": "eval-23",
+  "task_id": "23",
+  "subject": "Evaluate Task 23 (Soul Search)",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": { "team": "dotfiles", "role_contract": "evaluator" }
+}

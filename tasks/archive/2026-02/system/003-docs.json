@@ -1,0 +1,14 @@
+{
+  "id": "003-docs",
+  "title": "Generate Documentation",
+  "status": "completed",
+  "contract": "reviewer",
+  "blocked_by": [
+    "002-feature"
+  ],
+  "description": "Review feature.py and generate a README.md.",
+  "governance": {
+    "evaluated": true,
+    "plan_approved": false
+  }
+}

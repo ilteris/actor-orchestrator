@@ -1,0 +1,27 @@
+{
+  "id": "014-tiered-archival",
+  "subject": "Implement Tiered Archival Strategy",
+  "description": "Organize tasks/archive/2026-02/ into logical sub-folders (e.g., bench/, evaluate/, system/) to optimize blackboard performance and maintain hygiene.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": null
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "created_at": "2026-02-01T15:00:00Z",
+    "updated_at": "2026-02-01T18:20:02Z",
+    "artifacts": [
+      "tasks/archive/2026-02/evaluate/",
+      "tasks/archive/2026-02/audit/",
+      "tasks/archive/2026-02/feature/",
+      "tasks/archive/2026-02/test/",
+      "tasks/archive/2026-02/bench/",
+      "tasks/archive/2026-02/system/"
+    ]
+  }
+}

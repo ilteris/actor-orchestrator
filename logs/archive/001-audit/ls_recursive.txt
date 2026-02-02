@@ -1,0 +1,14 @@
+status_log.md
+tasks
+tmp
+
+./tasks:
+001-audit.json
+002-feature.json
+003-docs.json
+
+./tmp:
+001-audit
+
+./tmp/001-audit:
+ls_recursive.txt

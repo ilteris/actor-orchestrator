@@ -1,0 +1,14 @@
+{
+  "id": "006-scaling-bench",
+  "title": "Implement multi-agent scaling benchmark",
+  "description": "Create a stress test script that simulates 10 concurrent tasks to measure Supervisor responsiveness and zmx session overhead.",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "priority": "high",
+  "result": "Created scaling_bench.py to simulate 10 concurrent tasks.",
+  "governance": {
+    "evaluated": true,
+    "evaluation_report": "evaluation_report_006.md"
+  }
+}

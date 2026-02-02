@@ -1,0 +1,23 @@
+{
+  "id": "bench-1769963707-7-retry",
+  "subject": "RETRY: Explorer bench-1769963707-7",
+  "description": "Retry explorer task to generate missing ls.txt artifact and detailed report for bench-1769963707-7.",
+  "pillar": "ML Infrastructure",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "worker"
+  },
+  "metadata": {
+    "original_task_id": "bench-1769963707-7"
+  },
+  "produced_artifacts": [
+    "logs/bench-1769963707-7_ls.txt",
+    "logs/bench-1769963707-7_report.md"
+  ],
+  "governance": {
+    "evaluated": true,
+    "evaluation_timestamp": "2026-02-01T23:35:00Z"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "027",
+  "title": "System Health Auto-Reporting (SHAR) Engine",
+  "status": "completed",
+  "priority": "medium",
+  "description": "Implement a background script that periodically synthesizes swarm logs and memory into a concise Architect Daily Briefing in Markdown format.",
+  "created_at": "2026-02-01T21:10:00Z",
+  "assigned_worker": "worker-027"
+}

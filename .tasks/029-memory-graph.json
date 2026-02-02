@@ -1,0 +1,9 @@
+{
+  "id": "029",
+  "title": "Semantic Memory Graph Synthesis",
+  "status": "completed",
+  "priority": "high",
+  "description": "Convert episodic memory logs into a structured Mermaid dependency graph to visualize project progress and architectural evolution.",
+  "created_at": "2026-02-01T21:20:00Z",
+  "assigned_worker": "worker-029"
+}

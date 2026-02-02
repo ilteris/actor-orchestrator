@@ -1,0 +1,30 @@
+{
+  "id": "17",
+  "subject": "Migrate all Soul Python scripts to use soul_venv shebang",
+  "description": "Update the shebang line in all Python scripts in soul/ and soul/scripts/ to use #!/Users/ilteris/soul_venv/bin/python3 for consistency and dependency isolation.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect",
+    "worker_session": "teddy-worker-17"
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "created_at": "2026-02-01T09:41:00Z",
+    "updated_at": "2026-02-01T21:55:00Z",
+    "artifacts": [
+      "soul/scripts/reflection_patch.py",
+      "soul/scripts/insight_delivery.py",
+      "soul/scripts/soul_remediate.py",
+      "soul/scripts/system3_audit.py",
+      "soul/scripts/telemetry_sync.py",
+      "soul/scripts/swarm_task.py",
+      "soul/scripts/monitor_tasks.py"
+    ]
+  }
+}

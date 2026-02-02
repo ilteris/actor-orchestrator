@@ -1,0 +1,27 @@
+{
+  "id": "test-task",
+  "subject": "System Verification Task",
+  "description": "A simple task to verify the supervisor's ability to spawn workers and monitor progress.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": null,
+    "role_contract": "Architect",
+    "blocked_by": []
+  },
+  "governance": {
+    "plan_required": false,
+    "plan_approved": false,
+    "human_review_required": false,
+    "evaluated": true
+  },
+  "metadata": {
+    "created_at": "2026-02-01T18:00:00Z",
+    "updated_at": "2026-02-01T17:50:17Z",
+    "artifacts": [
+      "logs/test-task_verification.md"
+    ]
+  }
+}

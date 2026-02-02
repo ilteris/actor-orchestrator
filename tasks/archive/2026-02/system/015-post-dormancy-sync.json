@@ -1,0 +1,17 @@
+{
+  "id": "015",
+  "subject": "Post-Dormancy Sync & Registry Audit",
+  "description": "Perform a comprehensive audit of the task registry and session history after the dormancy period to ensure state consistency and readiness for new directives.",
+  "pillar": "Systems Engineering",
+  "status": "verified",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": null,
+    "role_contract": "Architect"
+  },
+  "governance": { "evaluated": true, "verdict": "PASS" }, "metadata": {
+    "created_at": "2026-02-01T17:40:00Z",
+    "updated_at": "2026-02-01T19:28:55Z"
+  }
+}

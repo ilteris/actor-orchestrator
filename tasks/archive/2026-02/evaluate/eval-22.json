@@ -1,0 +1,14 @@
+{
+  "id": "eval-22",
+  "task_id": "22",
+  "subject": "Evaluate Task 22 (Soul OS Refinement)",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  },
+  "metadata": {
+    "target_task_id": "22"
+  }
+}

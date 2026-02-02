@@ -1,0 +1,14 @@
+{
+  "id": "bench-1769954124-0",
+  "title": "Bench Task bench-1769954124-0",
+  "description": "Scaling benchmark sub-task bench-1769954124-0",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS",
+    "report": "evaluation_report_bench-1769954124-0.md"
+  }
+}

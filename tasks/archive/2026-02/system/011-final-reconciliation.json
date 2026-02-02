@@ -1,0 +1,27 @@
+{
+  "id": "011-final-reconciliation",
+  "subject": "Final Swarm Reconciliation & Dormancy Prep",
+  "description": "Verify all tasks in archive/ are 'completed' and 'evaluated', sync TODO.md, and perform final workspace hygiene before dormancy.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "governance": {
+    "plan_required": true,
+    "plan_approved": false,
+    "human_review_required": false,
+    "evaluated": true
+  },
+  "metadata": {
+    "created_at": "2026-02-01T18:00:00Z",
+    "updated_at": "2026-02-01T17:41:01Z",
+    "artifacts": [
+      "TODO.md",
+      "logs/archive/011-reconciliation/"
+    ]
+  }
+}

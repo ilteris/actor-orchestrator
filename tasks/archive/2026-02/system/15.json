@@ -1,0 +1,21 @@
+{
+  "id": "15",
+  "subject": "Execute first Soul Audit with new SYSTEM.md SSOT",
+  "description": "Run soul_audit.py to verify system integrity following the migration of the constitution from gemini/GEMINI.md to soul/SYSTEM.md.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "metadata": {
+    "created_at": "2026-01-28T10:45:00Z"
+  },
+  "governance": {
+    "evaluated": true,
+    "evaluation_date": "2026-02-01T21:57:11.036824",
+    "evaluation_summary": "Soul Audit verified. Artifacts exist and reference SYSTEM.md SSOT."
+  }
+}

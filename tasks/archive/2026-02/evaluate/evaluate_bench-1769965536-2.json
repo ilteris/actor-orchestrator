@@ -1,0 +1,12 @@
+{
+  "id": "evaluate_bench-1769965536-2",
+  "subject": "Evaluate bench-1769965536-2",
+  "type": "evaluate",
+  "target_task": "bench-1769965536-2",
+  "status": "completed",
+  "priority": "high",
+  "metadata": {
+    "created_at": "2026-02-01T20:00:00Z",
+    "updated_at": "2026-02-01T19:57:59Z"
+  }
+}

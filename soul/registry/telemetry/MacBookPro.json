@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-02T00:17:38+00:00",
+  "machine": "MacBookPro",
+  "last_audit": "2026-02-01T21:05:00+00:00",
+  "metrics": {
+    "raw_turns": 234,
+    "raw_errors": 0,
+    "memory_files_active": 0,
+    "protocol_reflection_count": 157
+  },
+  "status": "Healthy"
+}

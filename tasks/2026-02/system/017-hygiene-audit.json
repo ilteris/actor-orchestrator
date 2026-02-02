@@ -1,0 +1,14 @@
+{
+  "id": "017",
+  "title": "Agentic Environment Hygiene Audit",
+  "status": "in-progress",
+  "priority": "high",
+  "description": "Perform a high-fidelity audit of the Unix-for-AI environment hygiene in the test-bed.",
+  "requirements": [
+    "Check for zombie zmx sessions: 'zmx list'",
+    "Validate /tmp/actor-orchestrator permissions",
+    "Verify integrity of soul/memory/2026-02-01.md",
+    "Report any protocol drift in the .tasks/ directory"
+  ],
+  "created_at": "2026-02-01T19:25:00Z"
+}

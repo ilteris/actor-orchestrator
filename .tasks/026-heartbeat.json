@@ -1,0 +1,10 @@
+{
+  "id": "026",
+  "title": "System Heartbeat Verification",
+  "status": "completed",
+  "priority": "high",
+  "description": "Create a file named HEARTBEAT.md in the project root to verify end-to-end worker execution.",
+  "created_at": "2026-02-01T20:48:00Z",
+  "assigned_worker": "worker-026",
+  "completed_at": "2026-02-01T20:49:00Z"
+}

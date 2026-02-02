@@ -1,0 +1,20 @@
+{
+  "id": "23",
+  "subject": "Implement Agentic Soul Search",
+  "description": "Design and implement a 'soul search' command that uses ripgrep for local speed and Gemini for semantic reasoning, replacing the decommissioned ML-based local indexing.",
+  "pillar": "Knowledge Graphs",
+  "status": "verified",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "metadata": {
+    "created_at": "2026-02-01T21:55:00Z",
+    "updated_at": "2026-02-01T22:46:40Z",
+    "artifacts": [
+      "soul/scripts/soul_search.py"
+    ]
+  }
+}

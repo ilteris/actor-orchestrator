@@ -1,0 +1,23 @@
+{
+  "id": "eval-bench-1769963707-8",
+  "subject": "Evaluate bench-1769963707-8 report and artifacts",
+  "pillar": "SwarmOS / Actor-Orchestrator",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Evaluator",
+    "role_contract": "Evaluator"
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "target_task": "bench-1769963707-8",
+    "artifacts": [
+      "logs/bench-1769963707-8_report.md",
+      "logs/bench-1769963707-8_ls.txt"
+    ],
+    "evaluation_report": "evaluation_report_bench-1769963707-8.md"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "bench-1769956087-1",
+  "title": "Bench Task bench-1769956087-1",
+  "description": "Scaling benchmark sub-task bench-1769956087-1",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "governance": {
+    "evaluated": false
+  },
+  "history": [
+    {
+      "timestamp": "2026-02-01T23:52:00.000000",
+      "event": "evaluation_failed",
+      "actor": "Teddy (Evaluator)",
+      "summary": "Audit Refusal: Missing primary artifacts and worker report. Task requires remediation."
+    }
+  ]
+}

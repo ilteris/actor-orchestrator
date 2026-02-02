@@ -1,0 +1,10 @@
+{
+  "id": "030",
+  "title": "Swarm Health-Check Primitive (swarm-health)",
+  "status": "completed",
+  "priority": "medium",
+  "description": "Create a diagnostic script to audit zmx sessions, orphaned tasks, and verify supervisor health.",
+  "created_at": "2026-02-01T21:20:00Z",
+  "assigned_worker": "worker-030",
+  "completed_at": "2026-02-01T21:12:00Z"
+}

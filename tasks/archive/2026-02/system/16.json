@@ -1,0 +1,16 @@
+{
+  "id": "16",
+  "subject": "System 3 Soul Audit (Autonomous Trace Analysis)",
+  "description": "Implement a script to parse the last 24h of logs to identify efficiencies (verbosity, protocol drift) and propose heuristic patches for SYSTEM.md.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "metadata": {
+    "created_at": "2026-01-28T11:20:00Z"
+  }
+}

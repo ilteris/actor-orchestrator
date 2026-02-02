@@ -1,0 +1,8 @@
+.
+./tasks
+./tasks/002-feature.json
+./tasks/001-audit.json
+./tasks/003-docs.json
+./status_log.md
+./tmp
+./tmp/001-audit

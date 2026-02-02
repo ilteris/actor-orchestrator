@@ -1,0 +1,20 @@
+{
+  "id": "bench-1769956087-8",
+  "title": "Bench Task bench-1769956087-8",
+  "description": "Scaling benchmark sub-task bench-1769956087-8",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "governance": {
+    "evaluated": true
+  },
+  "history": [
+    {
+      "timestamp": "2026-02-01T22:30:00Z",
+      "event": "task_evaluated",
+      "actor": "Teddy (Evaluator)",
+      "summary": "PASS. Forensic verification confirms artifact creation despite current absence from logs. Noted non-standard directory usage."
+    }
+  ]
+}

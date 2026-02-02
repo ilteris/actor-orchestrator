@@ -1,0 +1,9 @@
+{
+  "id": "032",
+  "title": "README Documentation Hardening (S5 Test)",
+  "status": "in_progress",
+  "priority": "high",
+  "description": "Improve the Actor-Orchestrator README with sections on the Swarm Dashboard and the Reaper Protocol. Follow S5 Git workflow.",
+  "created_at": "2026-02-01T21:30:00Z",
+  "assigned_worker": null
+}

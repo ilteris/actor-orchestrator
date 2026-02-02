@@ -1,0 +1,23 @@
+{
+  "id": "009-robustness-patch",
+  "subject": "Implement Robustness Patch for Worker-Owned State & Artifact Verification",
+  "description": "Implement the 'Commit-then-Signal' protocol and 'Worker-Owned State' transition to resolve Ghost Completions and State Desynchronization as identified in scalability_audit_report.md.",
+  "pillar": "SwarmOS / Actor-Orchestrator",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "created_at": "2026-02-01T15:00:00Z",
+    "updated_at": "2026-02-01T17:36:02Z",
+    "artifacts": [
+      "robustness_patch_verification.md"
+    ]
+  }
+}

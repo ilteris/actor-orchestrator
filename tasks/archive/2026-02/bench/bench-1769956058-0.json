@@ -1,0 +1,13 @@
+{
+  "id": "bench-1769956058-0",
+  "title": "Remediate Recursive Workspace Pollution",
+  "description": "Task bench-1769956058-0 failed audit due to recursive workspace pollution. Action required: Debug scaling_bench.py and cleanup corrupted tmp/ directory.",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "priority": "high",
+  "governance": {
+    "evaluated": true,
+    "plan_required": true
+  }
+}

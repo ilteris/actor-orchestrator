@@ -1,0 +1,11 @@
+{
+  "id": "eval-33a1b2c4",
+  "task_id": "33a1b2c4",
+  "subject": "Evaluate Task 33a1b2c4 (Worker UX)",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  }
+}

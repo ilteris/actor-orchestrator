@@ -1,0 +1,13 @@
+{
+  "id": "bench-1769954124-7",
+  "title": "Bench Task bench-1769954124-7",
+  "description": "Scaling benchmark sub-task bench-1769954124-7",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "result": "Produced artifact at logs/bench-1769954124-7/report.md",
+  "governance": {
+    "evaluated": true
+  }
+}

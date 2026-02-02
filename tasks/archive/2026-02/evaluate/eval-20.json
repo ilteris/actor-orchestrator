@@ -1,0 +1,18 @@
+{
+  "id": "eval-20",
+  "task_id": "20",
+  "subject": "Evaluate Task 20 (System 3 Audit)",
+  "status": "completed",
+  "priority": "medium",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  },
+  "metadata": {
+    "target_task_id": "20",
+    "updated_at": "2026-02-01T23:07:58Z",
+    "artifacts": [
+      "soul/memory/system3_audit.md"
+    ]
+  }
+}

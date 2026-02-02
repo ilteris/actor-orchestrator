@@ -1,0 +1,26 @@
+{
+  "id": "016-soul-remediation",
+  "subject": "Soul Framework Remediation",
+  "description": "Remediate Degraded status in Soul Framework by improving reflection density and reducing tool error rates.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "metadata": {
+    "created_at": "2026-02-01T19:50:00Z",
+    "updated_at": "2026-02-01T19:39:35Z",
+    "artifacts": [
+      "soul/scripts/reflection_patch.py",
+      "soul/scripts/telemetry_sync.py",
+      "soul/registry/telemetry/MacBookPro.json",
+      "soul/scripts/soul_remediate.py"
+    ]
+  },
+  "governance": {
+    "evaluated": true
+  }
+}

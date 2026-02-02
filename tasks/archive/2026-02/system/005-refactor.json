@@ -1,0 +1,11 @@
+{
+  "id": "005-refactor",
+  "title": "Refactor feature.py and add unit tests",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": [],
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS"
+  }
+}

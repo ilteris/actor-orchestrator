@@ -1,0 +1,9 @@
+{
+  "id": "031",
+  "title": "Lifecycle Stress Test (Reconciliation)",
+  "status": "completed",
+  "priority": "low",
+  "description": "Verify the automated reconciliation loop. Read README.md and exit cleanly.",
+  "created_at": "2026-02-01T21:25:00Z",
+  "assigned_worker": "worker-031"
+}

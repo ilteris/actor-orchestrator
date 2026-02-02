@@ -1,0 +1,24 @@
+{
+  "id": "16-remediation",
+  "subject": "Remediate System 3 Soul Audit Patch Truncation",
+  "description": "Fix the bug in soul/scripts/system3_audit.py where patch descriptions containing colons are truncated. Update the script to use robust splitting (maxsplit=1) and re-verify the audit output.",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "metadata": {
+    "target_task_id": "16",
+    "failed_evaluation": "evaluation_report_016-soul-remediation.md",
+    "updated_at": "2026-02-01T22:01:19Z",
+    "artifacts": [
+      "soul/memory/system3_audit.md"
+    ]
+  },
+  "governance": {
+    "evaluated": true
+  }
+}

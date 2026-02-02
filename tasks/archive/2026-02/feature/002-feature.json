@@ -1,0 +1,14 @@
+{
+  "id": "002-feature",
+  "title": "Implement Mock Feature",
+  "status": "completed",
+  "contract": "architect",
+  "blocked_by": ["001-audit"],
+  "description": "Create a dummy feature.py file with a hello world function.",
+  "governance": {
+    "evaluated": true,
+    "plan_approved": false,
+    "last_audit": "2026-02-01",
+    "audit_status": "PASS"
+  }
+}

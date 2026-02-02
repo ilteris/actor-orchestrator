@@ -1,0 +1,23 @@
+{
+  "id": "bench-1769961163-0",
+  "subject": "Verified Scaling Benchmark (Post-Remediation)",
+  "description": "Run the scaling benchmark again using the patched scaling_bench.py to ensure recursion guards are effective and no workspace pollution occurs.",
+  "pillar": "ML Infrastructure",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "owner": "Teddy",
+    "role_contract": "Architect"
+  },
+  "governance": {
+    "plan_required": true,
+    "plan_approved": true,
+    "human_review_required": false,
+    "evaluated": true
+  },
+  "metadata": {
+    "created_at": "2026-02-01T15:55:00Z",
+    "updated_at": "2026-02-01T16:03:00Z"
+  }
+}

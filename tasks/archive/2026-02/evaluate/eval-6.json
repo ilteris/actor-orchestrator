@@ -1,0 +1,11 @@
+{
+  "id": "eval-6",
+  "task_id": "6",
+  "subject": "Evaluate Task 6 (Semantic Index Rebuild)",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  }
+}

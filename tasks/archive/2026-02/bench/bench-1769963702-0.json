@@ -1,0 +1,24 @@
+{
+  "id": "bench-1769963702-0",
+  "title": "Bench Task bench-1769963702-0 (RETRY)",
+  "description": "RETRY: Scaling benchmark sub-task bench-1769963702-0. Previous attempt failed due to missing artifacts and persistence issues.",
+  "status": "completed",
+  "contract": "Architect",
+  "blocked_by": [],
+  "priority": "high",
+  "metadata": {
+    "worker_session": "current",
+    "started_at": "2026-02-01T17:15:00Z",
+    "completed_at": "2026-02-01T17:17:00Z",
+    "artifacts": [
+      "tmp/bench-1769963702-0/report.md",
+      "logs/bench-1769963702-0_report.md",
+      "logs/bench-1769963702-0/report.md"
+    ]
+  },
+  "governance": {
+    "evaluated": true,
+    "verdict": "PASS",
+    "evaluation_report": "evaluation_report_bench-1769963702-0.md"
+  }
+}

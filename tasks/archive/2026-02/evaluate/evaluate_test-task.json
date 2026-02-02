@@ -1,0 +1,19 @@
+{
+  "id": "eval-test-task",
+  "subject": "Evaluate test-task",
+  "description": "Evaluate the completion and quality of test-task based on logs/test-task_verification.md",
+  "pillar": "Systems Engineering",
+  "status": "completed",
+  "priority": "high",
+  "orchestration": {
+    "team": "dotfiles",
+    "role_contract": "evaluator"
+  },
+  "governance": {
+    "evaluated": true
+  },
+  "metadata": {
+    "target_task_id": "test-task",
+    "target_artifact": "logs/test-task_verification.md"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "bench-1769963707-3",
+  "title": "Bench Task bench-1769963707-3",
+  "description": "Scaling benchmark sub-task bench-1769963707-3",
+  "status": "completed",
+  "contract": "explorer",
+  "blocked_by": [],
+  "priority": "low",
+  "governance": {
+    "evaluated": true, "verdict": "PASS",
+    "evaluation_notes": "PASS: Artifacts (ls.txt and report.md) are present and content is sufficient for Explorer contract after remediation.",
+    "remediation": "Artifacts logs/bench-1769963707-3_ls.txt and detailed report generated on 2026-02-01."
+  }
+}
