@@ -1,0 +1,12 @@
+{
+  "id": "033",
+  "title": "Automated Skill Registry Sync",
+  "status": "completed",
+  "priority": "high",
+  "description": "Implement a script that scans the skills/ directory and automatically updates the gemini-extension.json manifest with new skills and tools.",
+  "created_at": "2026-02-01T21:40:00Z",
+  "completed_at": "2026-02-01T22:15:00Z",
+  "assigned_worker": "Teddy",
+  "notes": "Hardened script with pathlib, tool discovery, and atomic writes. Verified deterministic sorting of manifest keys.",
+  "pull_request": "https://github.com/ilteris/actor-orchestrator/pull/2"
+}
