@@ -37,8 +37,14 @@
 - [x] remediate-bench-1769956087-1: Restore missing artifacts for bench task 1
 
 - [ ] **017**: Agentic Environment Hygiene Audit ([link](tasks/2026-02/system/017-hygiene-audit.json))
+- [x] 024: Strategy Synthesis
+- [ ] 025: Portability Audit
+- [x] 026: System Heartbeat
 - [x] 027: SHAR Engine
-- [ ] 028: Telemetry Bridge
-- [ ] 029: Semantic Memory Graph Synthesis\n- [ ] 030: Swarm Health-Check Primitive
-- [ ] 031: Lifecycle Stress Test
+- [x] 028: Telemetry Bridge
+- [x] 029: Semantic Memory Graph Synthesis
+- [x] 030: Swarm Health-Check Primitive
+- [x] 031: Lifecycle Stress Test
 - [ ] 032: README Documentation Hardening
+- [x] 033: Automated Skill Registry Sync
+- [x] 034: Swarm Session Chronicler
