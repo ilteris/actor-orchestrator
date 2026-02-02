@@ -1,5 +1,7 @@
 prompt = """
-Activate the orchestrate skill. 
-Bootstrap the project environment and launch the Actor-Orchestrator swarm 
-to manage the current project's TODO.md using zmx for physical isolation.
+Activate the supervisor skill in continuous mode. 
+1. Scan the `./tasks/` directory for any JSON files that are not 'completed'.
+2. For each pending task, spawn a Worker using the command:
+   zmx run worker-<id> "cd $PWD && gemini worker --yolo 'ACTIVATE SKILL: worker. task <id> contract Architect.' > /tmp/worker-<id>.log 2>&1"
+3. Monitor for worker completion and provide a summary of the PR links created.
 """
