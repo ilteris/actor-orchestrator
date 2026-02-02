@@ -1,26 +1,22 @@
 {
   "name": "actor-orchestrator",
   "version": "2.0.0",
-  "skills": ["supervisor", "worker", "evaluator", "teddy-supervisor", "orchestrate"],
+  "skills": [
+    "evaluator",
+    "orchestrate",
+    "supervisor",
+    "teddy-supervisor",
+    "worker"
+  ],
   "releaseUrl": "https://github.com/ilteris/actor-orchestrator/releases/tag/v2.0.0",
   "allowedTools": [
     "run_shell_command",
-    "run_command",
-    "execute_command",
     "write_todos",
     "read_file",
     "list_files",
     "delegate_to_agent",
     "web_fetch",
     "google_search",
-    "activate_skill",
-    "update_task",
-    "send_message"
-  ],
-  "mcpServers": {
-    "browser": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-google-chrome"]
-    }
-  }
+    "activate_skill"
+  ]
 }
