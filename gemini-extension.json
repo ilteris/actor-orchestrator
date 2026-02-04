@@ -17,6 +17,14 @@
     "read_file",
     "run_shell_command",
     "web_fetch",
-    "write_todos"
-  ]
+    "write_todos",
+    "update_task",
+    "send_message"
+  ],
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    }
+  }
 }
