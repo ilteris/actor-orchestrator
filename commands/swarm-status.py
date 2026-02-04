@@ -14,7 +14,7 @@ import re
 # --- High-Fidelity Styling ---
 BOLD = "\033[1m"; ITALIC = "\033[3m"; CYAN = "\033[36m"; GREEN = "\033[32m"; YELLOW = "\033[33m"; GREY = "\033[90m"; LIGHT_GREY = "\033[37m"; RESET = "\033[0m"; CLEAR = "\033[2J\033[H"
 
-PROJECT_DIR = "/Users/ilteris/Code/swarm-test-bed"
+PROJECT_DIR = os.getcwd()
 SEEN_EVENTS = set() 
 PULSATE = ["•", "•", "●", "●"] 
 
@@ -133,7 +133,7 @@ def main():
                     elif c == 's':
                         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
                         task_id = input(f"\n{BOLD}{CYAN}▶ Enter Task ID: {RESET}")
-                        os.system(f"bash /Users/ilteris/Code/actor-orchestrator/commands/swarm-stream {task_id}")
+                        os.system(f"bash {os.path.dirname(os.path.abspath(__file__))}/swarm-stream {task_id}")
                         tty.setcbreak(sys.stdin.fileno()); last_data_update = 0; break
                 time.sleep(0.05)
     finally:

@@ -5,8 +5,8 @@ import subprocess
 import glob
 from datetime import datetime
 
-ORCHESTRATOR_DIR = "/Users/ilteris/Code/actor-orchestrator"
-PROJECT_DIR = "/Users/ilteris/Code/swarm-test-bed"
+ORCHESTRATOR_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR = os.getcwd()
 TMP_DIR = "/tmp/actor-orchestrator"
 
 os.makedirs(TMP_DIR, exist_ok=True)

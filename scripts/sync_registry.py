@@ -4,7 +4,7 @@ from pathlib import Path
 
 def sync_registry():
     # Identify the project root
-    target_root = Path("/Users/ilteris/Code/actor-orchestrator")
+    target_root = Path(__file__).parent.parent
     
     skills_dir = target_root / "skills"
     manifest_path = target_root / "gemini-extension.json"
